@@ -1,54 +1,55 @@
-package org.pioneer.pioneerApp
+package org.pioneer.pioneerApp.NoticeList
 
-import android.content.ContentValues
+import android.content.ContentValues.TAG
 import android.content.Intent
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 import org.pioneer.pioneerApp.Adapter.WritingListAdapter
-import org.pioneer.pioneerApp.NoticeList.ListActivity
-import org.pioneer.pioneerApp.NoticeList.WritingModel
+import org.pioneer.pioneerApp.R
+import org.pioneer.pioneerApp.databinding.ActivityListBinding
 import org.pioneer.pioneerApp.utils.FBRef
 
-class MainActivity : AppCompatActivity() {
+
+class ListActivity : AppCompatActivity() {
+
 
     lateinit var RCAdapter : WritingListAdapter
 
     val List = mutableListOf<WritingModel>()
 
+
+
+    private lateinit var binding : ActivityListBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_list)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_list)
 
-        val moreButton = findViewById<TextView>(R.id.NoticeMore)
-        moreButton.setOnClickListener{
-            val intent = Intent(this, ListActivity::class.java)
+        binding.writingBtn.setOnClickListener{
+            val intent = Intent(this, WritingActivity::class.java)
             startActivity(intent)
         }
 
-
-
-
         getData()
+
 
         RCAdapter = WritingListAdapter(List)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
         recyclerView.adapter = RCAdapter
 
+
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.reverseLayout = true
         linearLayoutManager.stackFromEnd = true
         recyclerView.setLayoutManager(linearLayoutManager)
+
 
     }
     fun getData(){
@@ -62,10 +63,12 @@ class MainActivity : AppCompatActivity() {
 
                 for(dataModel in dataSnapshot.children){
 
-                    Log.d(ContentValues.TAG, dataModel.toString())
+                    Log.d(TAG, dataModel.toString())
 
                     val item = dataModel.getValue(WritingModel::class.java)
                     List.add(item!!)
+
+
 
                 }
                 RCAdapter.notifyDataSetChanged()
@@ -81,3 +84,4 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+

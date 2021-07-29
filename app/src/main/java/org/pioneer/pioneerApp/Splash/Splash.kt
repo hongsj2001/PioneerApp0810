@@ -1,9 +1,11 @@
-package org.pioneer.pioneerApp
+package org.pioneer.pioneerApp.Splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import org.pioneer.pioneerApp.MainActivity
+import org.pioneer.pioneerApp.R
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
