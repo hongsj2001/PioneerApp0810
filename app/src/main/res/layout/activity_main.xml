@@ -74,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@+id/recyclerview" />
 
     <ImageView
-        android:id="@+id/yt"
+        android:id="@+id/youtube_icon"
         android:layout_marginStart="20dp"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -83,22 +83,22 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageView
-        android:id="@+id/is"
+        android:id="@+id/instagram_icon"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="20dp"
         android:src="@drawable/instagram"
-        app:layout_constraintBottom_toBottomOf="@+id/yt"
-        app:layout_constraintStart_toEndOf="@id/yt"
+        app:layout_constraintBottom_toBottomOf="@+id/youtube_icon"
+        app:layout_constraintStart_toEndOf="@id/youtube_icon"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
     <ImageView
-        android:id="@+id/fc"
+        android:id="@+id/facebook_icon"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="20dp"
         android:src="@drawable/facebook"
-        app:layout_constraintBottom_toBottomOf="@+id/is"
-        app:layout_constraintStart_toEndOf="@id/is"
+        app:layout_constraintBottom_toBottomOf="@+id/instagram_icon"
+        app:layout_constraintStart_toEndOf="@id/instagram_icon"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
@@ -110,7 +110,7 @@
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/yt" />
+        app:layout_constraintTop_toBottomOf="@+id/youtube_icon" />
 
     <ImageView
         android:id="@+id/service_box"
@@ -155,13 +155,31 @@
         android:id="@+id/members"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="활동멤버"
+        android:text="활동 멤버"
         android:textColor="#999999"
         app:layout_constraintEnd_toEndOf="@+id/members_svg"
         app:layout_constraintStart_toStartOf="@+id/members_svg"
         app:layout_constraintTop_toBottomOf="@+id/members_svg" />
 
-
+    <ImageView
+        android:id="@+id/concert_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/members_svg"
+        app:layout_constraintStart_toEndOf="@+id/members_svg"
+        app:layout_constraintTop_toTopOf="@+id/members_svg"
+        app:srcCompat="@drawable/concert_icon" />
+    <TextView
+        android:id="@+id/concertText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="공연 목록"
+        android:textColor="#999999"
+        app:layout_constraintEnd_toEndOf="@+id/concert_icon"
+        app:layout_constraintStart_toStartOf="@+id/concert_icon"
+        app:layout_constraintTop_toBottomOf="@+id/concert_icon"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

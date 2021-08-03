@@ -3,6 +3,7 @@ package org.pioneer.pioneerApp
 import android.content.ContentValues
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -15,6 +16,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_main.*
 import org.pioneer.pioneerApp.Adapter.WritingListAdapter
 import org.pioneer.pioneerApp.NoticeList.ListActivity
 import org.pioneer.pioneerApp.NoticeList.WritingModel
@@ -30,15 +32,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        instagram_icon.setOnClickListener {
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/inu_pioneer/"))
+            startActivity(intent)
+        }
+        youtube_icon.setOnClickListener {
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/user/UIPIONEER"))
+            startActivity(intent)
+        }
+        facebook_icon.setOnClickListener {
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://m.facebook.com/inupioneer"))
+            startActivity(intent)
+        }
+        concert_icon.setOnClickListener{
+
+        }
+
         val moreButton = findViewById<TextView>(R.id.NoticeMore)
         moreButton.setOnClickListener{
             val intent = Intent(this, ListActivity::class.java)
             startActivity(intent)
         }
-
-
-
-
         getData()
 
         RCAdapter = WritingListAdapter(List)
@@ -52,21 +66,13 @@ class MainActivity : AppCompatActivity() {
 
     }
     fun getData(){
-
-
-
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-
                 List.clear()
-
                 for(dataModel in dataSnapshot.children){
-
                     Log.d(ContentValues.TAG, dataModel.toString())
-
                     val item = dataModel.getValue(WritingModel::class.java)
                     List.add(item!!)
-
                 }
                 RCAdapter.notifyDataSetChanged()
 
