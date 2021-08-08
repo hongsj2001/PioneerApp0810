@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NoticeList.WritingInsideActivity"
+    android:background="@color/mainColor">
+
+
+    <TextView
+        android:id="@+id/writing_title"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:text="제목"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        android:background="#232323"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:src="@drawable/back"
+        app:layout_constraintBottom_toBottomOf="@+id/writing_title"
+        app:layout_constraintStart_toStartOf="@+id/writing_title"
+        app:layout_constraintTop_toTopOf="@+id/writing_title" />
+
+
+    <TextView
+        android:layout_margin="10dp"
+        android:id="@+id/writing_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시간"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/writing_title" />
+
+    <TextView
+        android:id="@+id/writing_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="내용"
+        android:textColor="#999999"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/writing_time" />
+
+    <ImageView
+        android:id="@+id/remove_btn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/trashbin"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/writing_title"
+        app:layout_constraintEnd_toEndOf="@+id/writing_title"
+        app:layout_constraintTop_toTopOf="@+id/writing_title" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

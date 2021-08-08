@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         }
         getData()
 
-        RCAdapter = WritingListAdapter(List)
+        RCAdapter = WritingListAdapter(this, List)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
         recyclerView.adapter = RCAdapter
 

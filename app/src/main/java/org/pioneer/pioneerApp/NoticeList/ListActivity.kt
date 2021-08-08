@@ -4,6 +4,7 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +22,8 @@ class ListActivity : AppCompatActivity() {
 
 
     lateinit var RCAdapter : WritingListAdapter
+
+    private val writingKeyList = mutableListOf<String>()
 
     val List = mutableListOf<WritingModel>()
 
@@ -40,7 +43,15 @@ class ListActivity : AppCompatActivity() {
         getData()
 
 
-        RCAdapter = WritingListAdapter(List)
+        RCAdapter = WritingListAdapter(this, List)
+        RCAdapter.setItemClickListener(object: WritingListAdapter.ItemClickListener {
+            override fun onClick(view: View, position: Int) {
+                val intent = Intent(applicationContext, WritingInsideActivity::class.java)
+                intent.putExtra("key", writingKeyList[position])
+                startActivity(intent)
+            }
+        })
+
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
         recyclerView.adapter = RCAdapter
 
@@ -54,28 +65,17 @@ class ListActivity : AppCompatActivity() {
     }
     fun getData(){
 
-
-
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-
                 List.clear()
-
                 for(dataModel in dataSnapshot.children){
-
                     Log.d(TAG, dataModel.toString())
-
                     val item = dataModel.getValue(WritingModel::class.java)
                     List.add(item!!)
-
-
-
+                    writingKeyList.add(dataModel.key.toString())
                 }
                 RCAdapter.notifyDataSetChanged()
-
-
             }
-
             override fun onCancelled(databaseError: DatabaseError) {
 
             }
