@@ -2,6 +2,7 @@ package org.pioneer.pioneerApp.NoticeList
 
 import android.content.ContentValues
 import android.content.ContentValues.TAG
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -55,6 +56,12 @@ class WritingInsideActivity : AppCompatActivity() {
         }
         alertDialog.findViewById<Button>(R.id.button_cancel)?.setOnClickListener {
 
+            alertDialog.dismiss()
+        }
+        alertDialog.findViewById<Button>(R.id.button_edit)?.setOnClickListener {
+            val intent = Intent(this, WritingEditActivity::class.java)
+            intent.putExtra("key" , key)
+            startActivity(intent)
             alertDialog.dismiss()
         }
     }

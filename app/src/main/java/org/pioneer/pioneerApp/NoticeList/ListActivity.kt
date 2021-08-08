@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_writing.*
 import org.pioneer.pioneerApp.Adapter.WritingListAdapter
 import org.pioneer.pioneerApp.R
 import org.pioneer.pioneerApp.databinding.ActivityListBinding
@@ -40,6 +41,7 @@ class ListActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
         getData()
 
 
@@ -51,6 +53,7 @@ class ListActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         })
+
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
         recyclerView.adapter = RCAdapter
@@ -68,12 +71,15 @@ class ListActivity : AppCompatActivity() {
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 List.clear()
+                writingKeyList.clear()
                 for(dataModel in dataSnapshot.children){
                     Log.d(TAG, dataModel.toString())
                     val item = dataModel.getValue(WritingModel::class.java)
                     List.add(item!!)
                     writingKeyList.add(dataModel.key.toString())
                 }
+
+                Log.d(TAG, writingKeyList.toString())
                 RCAdapter.notifyDataSetChanged()
             }
             override fun onCancelled(databaseError: DatabaseError) {
