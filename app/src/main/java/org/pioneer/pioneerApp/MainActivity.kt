@@ -18,6 +18,8 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 import org.pioneer.pioneerApp.Adapter.WritingListAdapter
+import org.pioneer.pioneerApp.Concert.ConcertActivity
+import org.pioneer.pioneerApp.MemberInformation.GradeActivity
 import org.pioneer.pioneerApp.NoticeList.ListActivity
 import org.pioneer.pioneerApp.NoticeList.WritingModel
 import org.pioneer.pioneerApp.utils.FBRef
@@ -44,15 +46,23 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://m.facebook.com/inupioneer"))
             startActivity(intent)
         }
-        concert_icon.setOnClickListener{
 
+        members_icon.setOnClickListener {
+            var intent = Intent(this,GradeActivity::class.java)
+            startActivity(intent)
         }
+        concert_icon.setOnClickListener {
+            var intent = Intent(this,ConcertActivity::class.java)
+            startActivity(intent)
+        }
+
 
         val moreButton = findViewById<TextView>(R.id.NoticeMore)
         moreButton.setOnClickListener{
             val intent = Intent(this, ListActivity::class.java)
             startActivity(intent)
         }
+
         getData()
 
         RCAdapter = WritingListAdapter(this, List)

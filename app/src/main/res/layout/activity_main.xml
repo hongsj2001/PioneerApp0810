@@ -54,7 +54,7 @@
         android:id="@+id/recyclerview"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="75dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
@@ -122,7 +122,7 @@
         tools:layout_editor_absoluteX="20dp" />
 
     <ImageView
-        android:id="@+id/schedule_svg"
+        android:id="@+id/schedule_icon"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_margin="20dp"
@@ -136,20 +136,20 @@
         android:layout_height="wrap_content"
         android:text="일정"
         android:textColor="#999999"
-        app:layout_constraintEnd_toEndOf="@id/schedule_svg"
-        app:layout_constraintStart_toStartOf="@id/schedule_svg"
-        app:layout_constraintTop_toBottomOf="@id/schedule_svg" />
+        app:layout_constraintEnd_toEndOf="@id/schedule_icon"
+        app:layout_constraintStart_toStartOf="@id/schedule_icon"
+        app:layout_constraintTop_toBottomOf="@id/schedule_icon" />
 
     <ImageView
-        android:id="@+id/members_svg"
+        android:id="@+id/members_icon"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_margin="20dp"
         android:layout_marginStart="16dp"
         android:src="@drawable/members"
-        app:layout_constraintBottom_toBottomOf="@id/schedule_svg"
-        app:layout_constraintStart_toEndOf="@id/schedule_svg"
-        app:layout_constraintTop_toTopOf="@id/schedule_svg" />
+        app:layout_constraintBottom_toBottomOf="@id/schedule_icon"
+        app:layout_constraintStart_toEndOf="@id/schedule_icon"
+        app:layout_constraintTop_toTopOf="@id/schedule_icon" />
 
     <TextView
         android:id="@+id/members"
@@ -157,9 +157,9 @@
         android:layout_height="wrap_content"
         android:text="활동 멤버"
         android:textColor="#999999"
-        app:layout_constraintEnd_toEndOf="@+id/members_svg"
-        app:layout_constraintStart_toStartOf="@+id/members_svg"
-        app:layout_constraintTop_toBottomOf="@+id/members_svg" />
+        app:layout_constraintEnd_toEndOf="@+id/members_icon"
+        app:layout_constraintStart_toStartOf="@+id/members_icon"
+        app:layout_constraintTop_toBottomOf="@+id/members_icon" />
 
     <ImageView
         android:id="@+id/concert_icon"
@@ -167,9 +167,9 @@
         android:layout_height="50dp"
         android:layout_margin="20dp"
         android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/members_svg"
-        app:layout_constraintStart_toEndOf="@+id/members_svg"
-        app:layout_constraintTop_toTopOf="@+id/members_svg"
+        app:layout_constraintBottom_toBottomOf="@+id/members_icon"
+        app:layout_constraintStart_toEndOf="@+id/members_icon"
+        app:layout_constraintTop_toTopOf="@+id/members_icon"
         app:srcCompat="@drawable/concert_icon" />
     <TextView
         android:id="@+id/concertText"

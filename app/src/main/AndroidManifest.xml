@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PioneerApp">
-        <activity android:name=".NoticeList.WritingEditActivity"></activity>
+        <activity android:name=".Concert.SetlistActivity"></activity>
+        <activity android:name=".Concert.ConcertActivity" />
+        <activity android:name=".MemberInformation.MemberActivity" />
+        <activity android:name=".MemberInformation.GradeActivity" />
+        <activity android:name=".NoticeList.WritingEditActivity" />
         <activity android:name=".NoticeList.WritingInsideActivity" />
         <activity android:name=".NoticeList.WritingActivity" />
         <activity android:name=".NoticeList.ListActivity" />

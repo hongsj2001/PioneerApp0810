@@ -39,7 +39,7 @@ class WritingListAdapter(val context: Context, val message: MutableList<org.pion
 
 
         holder.itemView.setOnClickListener {
-            itemClickListner.onClick(it, position)
+            itemClickListner.onClick(it,position)
         }
 
     }
